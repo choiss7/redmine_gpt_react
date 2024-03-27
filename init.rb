@@ -10,12 +10,12 @@ Redmine::Plugin.register :redmine_gpt_react do
   
   permission :view_redmine_gpt_chatbot, { redmine_gpt_react: [:index] }, public: true
 
-  menu :project_menu, :gpt, { controller: 'redmine_gpt_react', action: 'index' }, caption: 'GPT-React', after: :activity, param: :project_id
+  menu :project_menu, :gpt_react, { controller: 'redmine_gpt_react', action: 'index' }, caption: 'GPT-React', after: :activity, param: :project_id
 
 
-    project_module :gpt do
-    permission :view_gpt, { gpt: [:index] } # gpt 컨트롤러의 index 액션을 볼 수 있는 권한을 추가합니다.
-    permission :use_gpt, { gpt: [:query] } # gpt 컨트롤러의 query 액션을 사용할 수 있는 권한을 추가합니다.
+    project_module :gpt_react do
+    permission :view_gpt, { gpt_react: [:index] } # gpt 컨트롤러의 index 액션을 볼 수 있는 권한을 추가합니다.
+    permission :use_gpt, { gpt_react: [:query] } # gpt 컨트롤러의 query 액션을 사용할 수 있는 권한을 추가합니다.
   end
 
   
