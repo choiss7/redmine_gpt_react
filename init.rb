@@ -9,5 +9,14 @@ Redmine::Plugin.register :redmine_gpt_react do
   settings default: {'openai_api_key' => '', 'gpt_model' => ''}, partial: 'settings/gpt_settings'
   
   permission :view_redmine_gpt_chatbot, { redmine_gpt_react: [:index] }, public: true
-  menu :top_menu, :redmine_gpt_chatbot, { controller: 'redmine_gpt_react', action: 'index' }, caption: 'GPT Chatbot', if: Proc.new { User.current.logged? }
+
+  menu :project_menu, :gpt, { controller: 'redmine_gpt_react', action: 'index' }, caption: 'GPT-React', after: :activity, param: :project_id
+
+
+    project_module :gpt do
+    permission :view_gpt, { gpt: [:index] } # gpt 컨트롤러의 index 액션을 볼 수 있는 권한을 추가합니다.
+    permission :use_gpt, { gpt: [:query] } # gpt 컨트롤러의 query 액션을 사용할 수 있는 권한을 추가합니다.
+  end
+
+  
 end
