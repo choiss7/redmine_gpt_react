@@ -6,6 +6,8 @@ Redmine::Plugin.register :redmine_gpt_react do
   url 'https://github.com/choiss7/redmine_gpt_react/'
   author_url 'https://github.com/choiss7/redmine_gpt_react/'
 
+  settings default: {'openai_api_key' => '', 'gpt_model' => ''}, partial: 'settings/gpt_settings'
+  
   permission :view_redmine_gpt_chatbot, { redmine_gpt_react: [:index] }, public: true
   menu :top_menu, :redmine_gpt_chatbot, { controller: 'redmine_gpt_react', action: 'index' }, caption: 'GPT Chatbot', if: Proc.new { User.current.logged? }
 end
