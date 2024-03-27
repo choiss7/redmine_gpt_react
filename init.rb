@@ -14,8 +14,8 @@ Redmine::Plugin.register :redmine_gpt_react do
 
 
     project_module :gpt_react do
-    permission :view_gpt, { gpt_react: [:index] } # gpt 컨트롤러의 index 액션을 볼 수 있는 권한을 추가합니다.
-    permission :use_gpt, { gpt_react: [:query] } # gpt 컨트롤러의 query 액션을 사용할 수 있는 권한을 추가합니다.
+    permission :view_gpt_react, { gpt_react: [:index] } # gpt 컨트롤러의 index 액션을 볼 수 있는 권한을 추가합니다.
+    permission :use_gpt_react, { gpt_react: [:query] } # gpt 컨트롤러의 query 액션을 사용할 수 있는 권한을 추가합니다.
   end
 
   
